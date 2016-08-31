@@ -1,3 +1,4 @@
+// API library for node.js
 var twitter = require('twitter');
 var twitterKeys = require('./keys.js').twitterKeys;
 // var spotify = require('spotify');
@@ -20,7 +21,7 @@ switch(direct){
         break;
     case 'spotify-this-song':
     {
-    	mySpotify();
+    	spotifyIt();
 
     }
     //     break;
@@ -54,7 +55,7 @@ function myTweets(){
 	 	// If no error occurs //
 	 	if (!error) {
 		
-			// Display 10 current tweets //
+			// Display  current tweets //
 			for (var i = 0; i < tweets.length; i++) {
 				console.log((parseInt([i]) + 1) + '. ' + tweets[i].text);
 			}    
@@ -63,43 +64,37 @@ function myTweets(){
 
 }
 
-	function mySpotify(){
+	function spotifyIt(){
 	// Grab the keys.js info//
 	// Set client to key grabbed//
-
+	// GET https://accounts.spotify.com/authorize
+	// GET https://accounts.spotify.com/authorize/?client_id=----------------------&response_type=code&redirect_uri=https%3A%2F%2Fexample.com%2Fcallback&scope=user-read-private%20user-read-email&state=34fFs29kd09
 	var spotify = require ('spotify');
 
 
-	spotify.search({ type: 'track', query: value 'ace of base the sign'}, function(err, data) {
+		spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(err, data) {
 	    if ( err ) {
 	        console.log('Error occurred: ' + err);
 	        return;
 	    }
-	 	// else {
-		 // 	console.log("-----INCOMING-----")
-	  //   	var spotifyThis = 
+	 	else {
+		 	console.log("-----INCOMING-----");
+	    	var spotifyThis = 
 	     
-		 //    var artist = spotifyThis.
-		 //    console.log("Artist: " + artist);
-		 //    var song = spotifyThis.
-		 //    console.log("Song name: " + song);
-		 //    var album = spotifyThis.
-		 //    console.log("Album: " + album);
+		    var artist = spotifyThis;
+		    console.log("Artist: " + artist);
+		    var song = spotifyThis.
+		    console.log("Song name: " + song);
+		    var album = spotifyThis.
+		    console.log("Album: " + album);
 
 
-// });
-
-// }
-
+	};
+}
 
 
-
-
-
-
-// var request = require('request');
-// request('http://www.omdbapi.com/?', function (error, response, body) {
-//   if (!error && response.statusCode == 200) {
-//     console.log(body) // Show the HTML for the Google homepage. 
-//   }
-// })
+request('http://www.omdbapi.com/?', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Show the HTML for the Google homepage. 
+  }
+})
